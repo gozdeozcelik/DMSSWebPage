@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name": "Kemalettin Taslak",
+      "salary": "3000",
+      "department": "Pazarlama 2",
+      "id": "unique-2"
+    },
+    {
+      "name": "Mehmet Kandemir",
+      "salary": "5500",
+      "department": "Bilişim",
+      "id": "x89IYzM"
+    },
+    {
+      "name": "Gözde Özçelik",
+      "department": "Tubitak",
+      "salary": "4000",
+      "id": "qpYDidb"
+    }
+  ]
+}
