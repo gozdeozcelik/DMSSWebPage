@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from "./layout/Navbar"
 import Users from "./components/Users"
-import AddUser from "./components/AddUser"
+import AddUser from "./forms/AddUser"
+import UpdateUser from "./forms/UpdateUser"
 import NotFound from "./pages/NotFound"
 import './App.css';
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
@@ -19,8 +20,10 @@ class App extends Component {
       <Switch>
         <Route exact path = "/" component = {Users} />
         <Route exact path = "/add" component = {AddUser} />
+        <Route exact path = "/deneme" component = {UpdateUser} />
+        <Route exact path = "/edit/:id" component = {UpdateUser} />
         <Route component = {NotFound} />
-      </Switch>
+      </Switch> 
       
       
      

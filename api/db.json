@@ -3,7 +3,7 @@
     {
       "name": "Kemalettin Taslak",
       "salary": "3000",
-      "department": "Pazarlama 2",
+      "department": "bilişimlerec",
       "id": "unique-2"
     },
     {
@@ -17,6 +17,18 @@
       "department": "Kw",
       "salary": "10",
       "id": "tO0Ayw1"
+    },
+    {
+      "name": "Burak Şal",
+      "department": "Bilişim",
+      "salary": "4000",
+      "id": "RLLggJn"
+    },
+    {
+      "name": "Gozde Ozçelik",
+      "department": "Tubitak",
+      "salary": "2",
+      "id": "VFUtdDE"
     }
   ]
 }

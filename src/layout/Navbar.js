@@ -2,31 +2,31 @@ import React from 'react'
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
+function Navbar({title}) {
+  
+  return (
+    
+    <nav className="navbar-nav navbar-expand-lg navbar-dark bg-dark mb-3 p-3">
+      <a href="/" className="navbar-brand">{title}</a>
 
-function Navbar(props){
-    return(
-        <div>
-            <h3>{props.tittle}</h3>
-            <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <Link to = "/" className = "nav-link">Home</Link>
-            </li>
-            <li className="nav-item active">
-              <Link to = "/add" className = "nav-link">Add User</Link>
-           </li>
-           <li className="nav-item active">
-           <Link to = "/github" className = "nav-link">Project Files</Link>
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item active">
+          <Link to = "/" className = "nav-link">Home</Link>
         </li>
-          
-          </ul>
-        </div>
-    )
+        <li className="nav-item active">
+          <Link to = "/add" className = "nav-link">Add User</Link>
+       </li>
+      
+      </ul>
+    
+    </nav>
+    
+  )
 }
 Navbar.propTypes = {
-
-    tittle: PropTypes.string.isRequired
+  title : PropTypes.string.isRequired
 }
-Navbar.defaultProps ={
-    tittle:"Default App"
+Navbar.defaultProps = {
+  title : "Default App"
 }
 export default Navbar;
