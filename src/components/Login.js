@@ -63,9 +63,10 @@ export default class Login extends Component {
  
   
         
-            <Card border="primary" >
+            <Card border="primary" bg="primary" text="white" style={{ width: '18rem' }} >
             <Card.Img variant="top" 
             height="200" src={logo} />
+            
             <Card.Header>Keller Williams Admin Ekranı Girişi</Card.Header>
           <Card.Body>
                 <Form onSubmit={this.handleSubmit}>

@@ -5,8 +5,9 @@ import './index.css';
 import App from './App';
 import SubmitComponent from './components/SubmitComponent'
 import Table from './components/Table'
+import Deneme from './components/deneme'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Deneme />, document.getElementById('root'));
 
 
 /*
