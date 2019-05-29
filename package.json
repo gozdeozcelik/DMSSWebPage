@@ -4,11 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "react": "^16.8.5",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-bootstrap-table-next": "^3.1.0",
     "react-dom": "^16.8.5",
+    "react-html-table-to-excel": "^2.0.0",
     "react-pose": "^4.0.8",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-table": "^6.9.2",
     "uniqid": "^5.0.3"
   },
   "scripts": {
