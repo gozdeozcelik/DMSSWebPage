@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import Button from 'react-bootstrap/Button';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Form from 'react-bootstrap/Form';
+import React, { Component  } from 'react'
+import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Form from 'react-bootstrap/Form'
 import axios, {post} from 'axios'
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import logo from './images/b.png'
-class SubmitComponent extends Component{
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import logo from './images/c.svg'
+class UpdateAlgorithmPage extends Component{
     
     constructor(props) {
         super(props);
@@ -84,41 +84,42 @@ class SubmitComponent extends Component{
 
         return (
 
-          <div>
+          <div >
 
-                      <div>
-                      <Navbar bg="info" variant="dark" >
-            <Navbar.Brand href="/main">
-            <img
-            alt=""
-            src= {logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-            />
-            {' Keller Williams'}
-            </Navbar.Brand>
-            <ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
 
-            <Nav className="mr-auto">
 
-            <Nav.Link  className="fas fa-home"  href="/main">Anasayfa</Nav.Link>
-            <Nav.Link  className="fas fa-poll-h" href="/table">Bölge Sonuçları</Nav.Link>
-            <Nav.Link className = "fas fa-plus-circle" href="/component">Bölge Ekle</Nav.Link>
-            <Nav.Link  className="fas fa-pen-square" href="/updatedataset">Verileri Güncelle</Nav.Link>
-            <Nav.Link className = "fas fa-sign-out-alt" href="/logins"> Çıkış</Nav.Link>
-            </Nav>
-            </Navbar>
-              </div>
           
-          <div style={{display: 'flex'}}>
+          <Navbar style={{display: 'flex',  justifyContent:'center'  ,backgroundColor:'#000000',textColor:'#000000',height: '5rem'}} >
+          <Navbar.Brand  style={{color:'#66B3FF',fontWeight: 'bold'}} href="/main">
+          <img 
+          alt=""
+          src= {logo}
+          width="50"
+          height="50"
+          
+          />
+          {' KELLER WILLIAMS'}
+          </Navbar.Brand>
+          <ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
 
-              
+          <Nav className="mr-auto">
 
-          <ListGroup  className="mx-4" style={{ width: "35rem" }} >
-          <h5 className="mx-4" > Kayıtlı Bölgeler:</h5>
+          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">Ana sayfa</Nav.Link>
+          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">Sonuçları Listele</Nav.Link>
+          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">Bölge Ekle</Nav.Link>
+          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">Veri Setini Güncelle</Nav.Link>
+          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> Çıkış</Nav.Link>
+          </Nav>
+      </Navbar>
+      <br/>  <br/>
+          <div style={{display: 'flex',  justifyContent:'center'  }} >
+
+          
+
+          <ListGroup  className="mx-4" style={{ width: "20rem" }} >
+          <h5 style={{ color:'#66B3FF' }}  > Kayıtlı Bölgeler:</h5>
           {items.map(item => (
-              <ListGroup.Item variant="info" key ={items.id}>
+              <ListGroup.Item style={{ fontWeight: 'bold' ,color:'#000000'}} variant="light" key ={items.id}>
               {item.region }
               </ListGroup.Item>
           ))}
@@ -130,9 +131,9 @@ class SubmitComponent extends Component{
         <br/>
         <br/>
         <br/>
-        <h5 className="" > Yeni Bölge Ekle</h5>
+        <h5 style={{ color:'#66B3FF' }}> Yeni Bölge Ekle</h5>
         <Form.Group as={Row} >
-        <Form.Label column sm="2">
+        <Form.Label  style={{ color:'#66B3FF', fontWeight: 'bold' }} column sm="2">
             Bölge:
         </Form.Label>
         <Col sm="10">
@@ -140,7 +141,7 @@ class SubmitComponent extends Component{
         </Col>
         </Form.Group>
         <Form.Group as={Row} >
-        <Form.Label column sm="2">
+        <Form.Label  style={{ color:'#66B3FF', fontWeight: 'bold' }} column sm="2">
             Tür:
         </Form.Label>
         <Col sm="10">
@@ -161,7 +162,7 @@ class SubmitComponent extends Component{
         );
       }
 }
-export default SubmitComponent;
+export default UpdateAlgorithmPage;
 
 
 /*
@@ -197,4 +198,22 @@ duyguyla çalışan
             
     }
 
+    */
+
+
+
+    /*
+
+    componentDidMount(){
+        fetch("http://192.168.43.165:8086/regions")
+            .then(res=> res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded:true,
+                    items:json.regions,
+                })
+                
+            });
+            
+    }
     */

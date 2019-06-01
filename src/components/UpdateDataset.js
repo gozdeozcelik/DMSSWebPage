@@ -220,7 +220,7 @@ export default class UpdateDataset extends Component {
         </Col>
       </Form.Group>
           
-            <Button type="submit">Kaydet</Button>
+            <Button bold ='true' variant="info" type="submit">Kaydet</Button>
             
           </form>
           </div>

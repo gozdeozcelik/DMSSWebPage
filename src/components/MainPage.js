@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import logo from './images/slide1.jpg'
-import logo2 from './images/slide2.jpg'
+import slide from './images/slide1.jpg'
+import slide2 from './images/slide2.jpg'
+import logo from './images/b.png'
 import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 export default class MainPage extends Component {
     constructor(props, context) {
         super(props, context);
@@ -24,41 +26,43 @@ export default class MainPage extends Component {
   render() {
     const { index, direction } = this.state;
     return (
-      <div>
+      <div >
 
-          <div>
-          <Nav fill variant="tabs" defaultActiveKey="/">
-          <Nav.Item>
-        
-          <Nav.Link  className="fas fa-home"  href="/main">Anasayfa</Nav.Link>
-        </Nav.Item>
-          <Nav.Item>
-        
-            <Nav.Link  className="fas fa-poll-h" href="/table">Bölge Sonuçları</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link className = "fas fa-plus-circle" href="/component">Bölge Ekle</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link  className="fas fa-pen-square" href="/updatedataset">Verileri Güncelle</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-        
-            <Nav.Link className = "fas fa-sign-out-alt" href="/logins">Çıkış</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-              
-          </Nav.Item>
-        </Nav>
-          </div>
+      <div>
+      <Navbar bg="info" variant="dark" >
+<Navbar.Brand href="/main">
+<img
+alt=""
+src= {logo}
+width="30"
+height="30"
+className="d-inline-block align-top"
+/>
+{' Keller Williams'}
+</Navbar.Brand>
+<ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
+
+<Nav className="mr-auto">
+
+<Nav.Link  className="fas fa-home"  href="/main">Anasayfa</Nav.Link>
+<Nav.Link  className="fas fa-poll-h" href="/table">Bölge Sonuçları</Nav.Link>
+<Nav.Link className = "fas fa-plus-circle" href="/component">Bölge Ekle</Nav.Link>
+<Nav.Link  className="fas fa-pen-square" href="/updatedataset">Verileri Güncelle</Nav.Link>
+<Nav.Link className = "fas fa-sign-out-alt" href="/logins"> Çıkış</Nav.Link>
+</Nav>
+</Navbar>
+</div>
           <br/>
+          <div >
       <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={logo}
+          src={slide}
           alt="Keller Williams"
           height = "600" 
+         
+     
         />
         <Carousel.Caption>
           <h3>Keller Williams Admin Paneli</h3>
@@ -68,7 +72,7 @@ export default class MainPage extends Component {
       <Carousel.Item>
         <img
           className="d-block w-100 h-40"
-          src={logo2}
+          src={slide2}
           alt="Third slide"
           height = "600" 
         />
@@ -80,6 +84,7 @@ export default class MainPage extends Component {
       </Carousel.Item>
     
     </Carousel>
+    </div>
       </div>
     )
   }
