@@ -103,19 +103,20 @@ export default class UpdateDatasetPage extends Component {
 
                 <Nav className="mr-auto">
 
-                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANASAYFA</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANA SAYFA</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">SONUÇLARI LİSTELE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">BÖLGE EKLE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">VERİ SETİNİ GÜNCELLE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> ÇIKIŞ</Nav.Link>
                 </Nav>
             </Navbar>
-            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+            <br/>
+            <div style={{display: 'flex',  justifyContent:'center'  }}>
                 <Card  bg="light"   text="primary" style={{ width: '40rem',justifyContent:'center' }}>
                 <Card.Body>
                     <Card.Title >Veri Seti Güncelleme Formu </Card.Title>
                     
-                    <div>
+                   
                     <form onSubmit={this.handleSubmit}>
                     <Form.Row>
                     <Form.Group as={Col} >
@@ -170,8 +171,8 @@ export default class UpdateDatasetPage extends Component {
                 
                 </Form.Control>
                 </Form.Group>
-
-
+   
+              
 
                 </Form.Row>
                     <Form.Group as={Row} >
@@ -211,13 +212,13 @@ export default class UpdateDatasetPage extends Component {
                     <Button variant="primary" type="submit">Kaydet</Button>
                     
                 </form>
-                </div>
+               
                     
                 </Card.Body>
                 </Card>
+                </div>
             </div>
-    
-    </div>
+   
         
     );
   }

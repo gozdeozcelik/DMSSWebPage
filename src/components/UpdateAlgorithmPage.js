@@ -65,13 +65,14 @@ class UpdateAlgorithmPage extends Component{
         const url = "http://192.168.43.165:8086/regions";
         console.log("gönderilen region", this.state.region)
         console.log("gönderilen type", this.state.type)
-        
+       
         const data={"region":this.state.region, 
             "type": this.state.type , "dataform": this.state.formDatas
         }
 
         return post(url,data)
             .then(response => console.warn("result",response))
+        this.props.history.push('/component')
 
       }
     
@@ -86,31 +87,28 @@ class UpdateAlgorithmPage extends Component{
 
           <div >
 
-
-
-          
           <Navbar style={{display: 'flex',  justifyContent:'center'  ,backgroundColor:'#000000',textColor:'#000000',height: '5rem'}} >
-          <Navbar.Brand  style={{color:'#66B3FF',fontWeight: 'bold'}} href="/main">
-          <img 
-          alt=""
-          src= {logo}
-          width="50"
-          height="50"
-          
-          />
-          {' KELLER WILLIAMS'}
-          </Navbar.Brand>
-          <ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
+                <Navbar.Brand  style={{color:'#66B3FF',fontWeight: 'bold'}} href="/main">
+                <img 
+                alt=""
+                src= {logo}
+                width="50"
+                height="50"
+                
+                />
+                {' Keller Williams'}
+                </Navbar.Brand>
+                <ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
 
-          <Nav className="mr-auto">
+                <Nav className="mr-auto">
 
-          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">Ana sayfa</Nav.Link>
-          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">Sonuçları Listele</Nav.Link>
-          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">Bölge Ekle</Nav.Link>
-          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">Veri Setini Güncelle</Nav.Link>
-          <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> Çıkış</Nav.Link>
-          </Nav>
-      </Navbar>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANA SAYFA</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">SONUÇLARI LİSTELE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">BÖLGE EKLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">VERİ SETİNİ GÜNCELLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> ÇIKIŞ</Nav.Link>
+                </Nav>
+            </Navbar>
       <br/>  <br/>
           <div style={{display: 'flex',  justifyContent:'center'  }} >
 

@@ -16,7 +16,7 @@ import Table from './components/Table'
 import UpdateDataset from './components/UpdateDataset'
 import  DisplayResult from './components/displayResultTable'
 
-ReactDOM.render(<UpdateAlgorithmPage/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 /*

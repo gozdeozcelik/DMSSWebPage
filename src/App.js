@@ -21,8 +21,8 @@ class App extends Component {
     return (
     
      <Router>
-     <div className="container">
-     
+     <div >
+
       <hr/>
       
       <Switch>
@@ -34,11 +34,7 @@ class App extends Component {
         <Route exact path = "/logins" component = {LoginPage} />
         <Route component = {NotFound} />
       </Switch> 
-      
-      
      
-      
-    
     </div>
      </Router>
      

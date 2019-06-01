@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import slide from './images/slide1.jpg'
 import slide2 from './images/slide2.jpg'
-import logo from './images/b.png'
+import logo from './images/c.svg'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 export default class MainPage extends Component {
@@ -28,30 +28,28 @@ export default class MainPage extends Component {
     return (
       <div >
 
-      <div>
-      <Navbar bg="info" variant="dark" >
-<Navbar.Brand href="/main">
-<img
-alt=""
-src= {logo}
-width="30"
-height="30"
-className="d-inline-block align-top"
-/>
-{' Keller Williams'}
-</Navbar.Brand>
-<ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
+      <Navbar style={{display: 'flex',  justifyContent:'center'  ,backgroundColor:'#000000',textColor:'#000000',height: '5rem'}} >
+                <Navbar.Brand  style={{color:'#66B3FF',fontWeight: 'bold'}} href="/main">
+                <img 
+                alt=""
+                src= {logo}
+                width="50"
+                height="50"
+                
+                />
+                {' Keller Williams'}
+                </Navbar.Brand>
+                <ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
 
-<Nav className="mr-auto">
+                <Nav className="mr-auto">
 
-<Nav.Link  className="fas fa-home"  href="/main">Anasayfa</Nav.Link>
-<Nav.Link  className="fas fa-poll-h" href="/table">Bölge Sonuçları</Nav.Link>
-<Nav.Link className = "fas fa-plus-circle" href="/component">Bölge Ekle</Nav.Link>
-<Nav.Link  className="fas fa-pen-square" href="/updatedataset">Verileri Güncelle</Nav.Link>
-<Nav.Link className = "fas fa-sign-out-alt" href="/logins"> Çıkış</Nav.Link>
-</Nav>
-</Navbar>
-</div>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANA SAYFA</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">SONUÇLARI LİSTELE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">BÖLGE EKLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">VERİ SETİNİ GÜNCELLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> ÇIKIŞ</Nav.Link>
+                </Nav>
+            </Navbar>
           <br/>
           <div >
       <Carousel>
