@@ -16,12 +16,12 @@ export default class ResultTablePage extends Component {
         }
      }
      componentDidMount(){
-        fetch("https://jsonplaceholder.typicode.com/users")
+        fetch("http://192.168.43.165:8086/results")
             .then(res=> res.json())
             .then(json => {
                 this.setState({
                   
-                    data:json,
+                    data:json.results,
                 })
                 
             });
@@ -70,10 +70,10 @@ export default class ResultTablePage extends Component {
                                     <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>Decision Tree</th> 
                                  </tr>
                                  {this.state.data.slice(0,5).map(event => (<tr>
-                                    <td style={{ fontWeight: 'bold' }}>{event.name}</td>
-                                    <td style={{ fontWeight: 'bold' }}>{event.username}</td>
-                                    <td style={{ fontWeight: 'bold' }}>{event.email}</td>
-                                    <td style={{ fontWeight: 'bold' }}>{event.username}</td>
+                                    <td style={{ fontWeight: 'bold' }}>{event.region}</td>
+                                    <td style={{ fontWeight: 'bold' }}>{event.type}</td>
+                                    <td style={{ fontWeight: 'bold' }}>{event.knn}</td>
+                                    <td style={{ fontWeight: 'bold' }}>{event.tree}</td>
                                  </tr>))}
                               </Table>
                            </div>

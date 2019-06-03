@@ -72,7 +72,8 @@ class UpdateAlgorithmPage extends Component{
 
         return post(url,data)
             .then(response => console.warn("result",response))
-        this.props.history.push('/component')
+            .then(this.props.history.push('/main'))
+       
 
       }
     

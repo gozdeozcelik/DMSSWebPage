@@ -21,9 +21,8 @@ export default class LoginPage extends Component {
   handleSubmit(event) {
       console.log('email:' , this.state.email);
       console.log('password:' , this.state.password);
-      this.props.history.push('/main')
       event.preventDefault();
-      const url = "http://192.168.43.165:8086/user";
+      const url = "http://192.168.43.165:8086/webUser";
       const data={"email":this.state.email, 
           "password": this.state.password
       }

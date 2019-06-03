@@ -81,6 +81,7 @@ export default class UpdateDatasetPage extends Component {
         console.log("data",data)
         return post(url,data)
             .then(response => console.warn("result",response))
+            .then(this.props.history.push('/main'))
 
       }
   render() {
