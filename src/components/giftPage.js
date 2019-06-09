@@ -61,8 +61,6 @@ export default class giftPage extends Component {
         
         event.preventDefault();
         const url = "http://192.168.1.26:8086/regions";
-         console.log("mesaj", this.state.mesage)
-       console.log("resim", this.state.formDatas)
         const data={"mesage":this.state.mesage, 
              "dataform": this.state.formDatas
         }
@@ -117,10 +115,7 @@ export default class giftPage extends Component {
       <br/>  <br/>
           <div style={{display: 'flex',  justifyContent:'center'  }} >
 
-          
-
-
-
+    
         <form onSubmit={this.handleSubmit}>
         <br/>
         <br/>

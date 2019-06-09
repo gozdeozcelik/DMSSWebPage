@@ -61,12 +61,10 @@ class UpdateAlgorithmPage extends Component{
         this.setState({type: event.target.value});
       }
       handleSubmit(event) {
-        console.log('Bölge', this.state.region)
-        console.log('Tür', this.state.type)
+     
         event.preventDefault();
         const url = "http://192.168.1.26:8086/regions";
-        console.log("gönderilen region", this.state.region)
-        console.log("gönderilen type", this.state.type)
+     
        
         const data={"region":this.state.region, 
             "type": this.state.type , "dataform": this.state.formDatas
@@ -170,55 +168,3 @@ class UpdateAlgorithmPage extends Component{
 export default UpdateAlgorithmPage;
 
 
-/*
-duyguyla çalışan 
- componentDidMount(){
-        fetch("http://192.168.1.26:8086/file")
-            .then(res=> res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded:true,
-                    items:json.user,
-                })
-                
-            });
-            
-    }
-
-    */
-
-    /*
-  çaışan ::
-
-      componentDidMount(){
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(res=> res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded:true,
-                    items:json,
-                })
-                
-            });
-            
-    }
-
-    */
-
-
-
-    /*
-
-    componentDidMount(){
-        fetch("http://192.168.1.26:8086/regions")
-            .then(res=> res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded:true,
-                    items:json.regions,
-                })
-                
-            });
-            
-    }
-    */

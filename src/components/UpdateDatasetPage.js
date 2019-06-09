@@ -243,12 +243,7 @@ export default class UpdateDatasetPage extends Component {
                     </Col>
                     </Form.Group>
                     
-                    
-
-
-
-
-
+                  
                     <Button variant="primary" type="submit">Kaydet</Button>
                     
                 </form>
