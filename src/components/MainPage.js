@@ -44,9 +44,10 @@ export default class MainPage extends Component {
                 <Nav className="mr-auto">
 
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANA SAYFA</Nav.Link>
-                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">SONUÇLARI LİSTELE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">BÖLGE EKLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">FİYAT TAHMİNİ SONUÇLARI</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">VERİ SETİNİ GÜNCELLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/gift">ÖDÜLÜ GÜNCELLE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> ÇIKIŞ</Nav.Link>
                 </Nav>
             </Navbar>

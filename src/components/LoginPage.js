@@ -2,6 +2,7 @@ import React, { Component , Text} from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import logos from './images/c.jpg'
 import axios, {post} from 'axios'
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 export default class LoginPage extends Component {
@@ -19,10 +20,9 @@ export default class LoginPage extends Component {
     this.setState({password: event.target.value});
   }
   handleSubmit(event) {
-      console.log('email:' , this.state.email);
-      console.log('password:' , this.state.password);
+      this.props.history.push('/main')
       event.preventDefault();
-      const url = "http://192.168.43.165:8086/webUser";
+      const url = "http://192.168.1.26:8086/webUser";
       const data={"email":this.state.email, 
           "password": this.state.password
       }
@@ -52,13 +52,10 @@ export default class LoginPage extends Component {
           <br/>
           <br/>
           <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+        
           <div style={{display: 'flex', justifyContent: 'center',fontWeight: 'bold' }}>
             <Card bg="light"   text="info" style={{ width: '18rem' }} >
+            <Card.Img variant="top" src={logos}/>
               <Card.Header>Keller Williams Admin Paneli</Card.Header>
               <Card.Body>
               <Form onSubmit={this.handleSubmit}>

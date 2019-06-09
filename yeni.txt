@@ -1,0 +1,7 @@
+﻿Yetki,Bölge,Yapılı,Eşyalı,Fiyat,Bölüm,m2,KatSayısı
+
+0,Balgat,0,0,15000,18,800.0,3.0
+
+0,Balgat,1,0,15000,10,440.0,15.0
+
+0,Balgat,0,0,1300,2,65.0,25.0

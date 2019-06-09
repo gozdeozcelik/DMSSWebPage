@@ -1,26 +1,26 @@
 import React, { Component  } from 'react'
 import Button from 'react-bootstrap/Button'
-import ListGroup from 'react-bootstrap/ListGroup'
 import Form from 'react-bootstrap/Form'
+import ImageUploader from 'react-images-upload'
 import axios, {post} from 'axios'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Navbar from 'react-bootstrap/Navbar'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-
 import Nav from 'react-bootstrap/Nav'
 import logo from './images/c.svg'
-class UpdateAlgorithmPage extends Component{
-    
+
+export default class giftPage extends Component {
+
+   
     constructor(props) {
         super(props);
-        this.state = {region: '',type: '', items:[],
+        this.state = {mesage: '',
         isLoaded:false,
-        image:'', formDatas:''
+        image:'', formDatas:'', pictures: [] 
       };
-    
-        this.handleChangeRegion = this.handleChangeRegion.bind(this);
-        this.handleChangeType = this.handleChangeType.bind(this);
+        this.onDrop = this.onDrop.bind(this);
+        this.handleChangeGift = this.handleChangeGift.bind(this);
+      
         this.handleSubmit = this.handleSubmit.bind(this);
       }
       onChange(e)
@@ -45,7 +45,6 @@ class UpdateAlgorithmPage extends Component{
             .then(json => {
                 this.setState({
                     isLoaded:true,
-                    items:json.regions,
                 })
                 
             });
@@ -54,22 +53,18 @@ class UpdateAlgorithmPage extends Component{
 
 
     
-      handleChangeRegion(event) {
-        this.setState({region: event.target.value});
+      handleChangeGift(event) {
+        this.setState({mesage: event.target.value});
       }
-      handleChangeType(event) {
-        this.setState({type: event.target.value});
-      }
+     
       handleSubmit(event) {
-        console.log('Bölge', this.state.region)
-        console.log('Tür', this.state.type)
+        
         event.preventDefault();
         const url = "http://192.168.1.26:8086/regions";
-        console.log("gönderilen region", this.state.region)
-        console.log("gönderilen type", this.state.type)
-       
-        const data={"region":this.state.region, 
-            "type": this.state.type , "dataform": this.state.formDatas
+         console.log("mesaj", this.state.mesage)
+       console.log("resim", this.state.formDatas)
+        const data={"mesage":this.state.mesage, 
+             "dataform": this.state.formDatas
         }
 
         return post(url,data)
@@ -78,7 +73,13 @@ class UpdateAlgorithmPage extends Component{
        
 
       }
-    
+      onDrop(picture) {
+         
+        this.setState({
+            pictures: this.state.pictures.concat(picture),
+        })
+        console.log( this.state.pictures.concat(picture));
+    }
       render() {
         var myStyle = {
           fontSize: 15,
@@ -89,7 +90,7 @@ class UpdateAlgorithmPage extends Component{
         return (
 
           <div >
-
+            
           <Navbar style={{display: 'flex',  justifyContent:'center'  ,backgroundColor:'#000000',textColor:'#000000',height: '5rem'}} >
                 <Navbar.Brand  style={{color:'#66B3FF',fontWeight: 'bold'}} href="/main">
                 <img 
@@ -118,46 +119,33 @@ class UpdateAlgorithmPage extends Component{
 
           
 
-          <ListGroup  className="mx-4" style={{ width: "20rem" }} >
-          <h5 style={{ color:'#66B3FF' }}  > Kayıtlı Bölgeler:</h5>
-          {items.map(item => (
-              <ListGroup.Item style={{ fontWeight: 'bold' ,color:'#000000'}} variant="light" key ={items.id}>
-              {item.region }
-              </ListGroup.Item>
-          ))}
-          </ListGroup>
 
 
         <form onSubmit={this.handleSubmit}>
         <br/>
         <br/>
        
-        <h5 style={{ color:'#66B3FF' }}> Yeni Bölge Ekle</h5>
+        <h5 style={{ color:'#66B3FF' }}>Haftalık Ödülü Güncelle</h5>
         <Form.Group as={Row} >
         <Form.Label  style={{ color:'#66B3FF', fontWeight: 'bold' }} column sm="2">
-            Bölge:
+            Ödül Mesajı:
         </Form.Label>
         <Col sm="10">
-            <Form.Control type="text" value={this.state.region} onChange={this.handleChangeRegion} />
+            <Form.Control type="text" value={this.state.gift} onChange={this.handleChangeGift} />
         </Col>
         </Form.Group>
-        <Form.Group as={Row} >
-        <Form.Label  style={{ color:'#66B3FF', fontWeight: 'bold' }} column sm="2">
-            Tür:
-        </Form.Label>
-        <Col sm="10">
-            <Form.Control type="text" value={this.state.type} onChange={this.handleChangeType} />
-        </Col>
-        </Form.Group>
-
         
-
-        <i className = "fas fa-plus-circle" ></i>
-        <input type="file" name ="file" onChange={(e) => this.onChange(e)} />
-        <a href='https://drive.google.com/file/d/1S3a2IE073OzXP3SkZ39lqLWZaZ6gfA7F/view?usp=sharing' download>Örnek Veri Seti Şablonu İçin Tıklayınız..</a>
-        <br/><br/>
         
-        <Button type="submit">Kaydet</Button>
+        <ImageUploader
+        withIcon={true}
+        buttonText='Resim Seç'
+        onChange={this.onDrop}
+        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+        maxFileSize={5242880}
+        label=""
+        singleImage = {true}
+    />
+    <Button style={{marginLeft: 100  }} type="submit">Kaydet</Button>
         
       </form>
       
@@ -167,58 +155,3 @@ class UpdateAlgorithmPage extends Component{
         );
       }
 }
-export default UpdateAlgorithmPage;
-
-
-/*
-duyguyla çalışan 
- componentDidMount(){
-        fetch("http://192.168.1.26:8086/file")
-            .then(res=> res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded:true,
-                    items:json.user,
-                })
-                
-            });
-            
-    }
-
-    */
-
-    /*
-  çaışan ::
-
-      componentDidMount(){
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(res=> res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded:true,
-                    items:json,
-                })
-                
-            });
-            
-    }
-
-    */
-
-
-
-    /*
-
-    componentDidMount(){
-        fetch("http://192.168.1.26:8086/regions")
-            .then(res=> res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded:true,
-                    items:json.regions,
-                })
-                
-            });
-            
-    }
-    */

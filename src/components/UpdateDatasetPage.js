@@ -9,13 +9,18 @@ import Card from 'react-bootstrap/Card';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './images/c.svg'
 import axios, {post} from 'axios'
-
+import Select from 'react-select';
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
 export default class UpdateDatasetPage extends Component {
 
   
     constructor(props) {
         super(props);
-        this.state = {region: '',type: '', fiyat:'', yetki:'', yapili:'', esyali:'', bolum:'',m2:'', katSayisi:'', bulKat:'', aidat:''};
+        this.state = {region: '',type: '', fiyat:'', yetki:'', yapili:'', esyali:'', bolum:'',m2:'', katSayisi:'', bulKat:'', aidat:'', optionlar:''};
     
         this.handleChangeRegion = this.handleChangeRegion.bind(this);
         this.handleChangeType = this.handleChangeType.bind(this);
@@ -73,7 +78,7 @@ export default class UpdateDatasetPage extends Component {
 
     
         event.preventDefault();
-        const url = "http://192.168.43.165:8086/updateDataset";
+        const url = "http://192.168.1.26:8086/updateDataset";
         const data={"region":this.state.region, 
             "type": this.state.type, "fiyat": this.state.fiyat , "yetki": this.state.yetki , "yapili": this.state.yapili ,"esyali": this.state.esyali,
             "bolum": this.state.bolum, "m2": this.state.m2, "katSayisi": this.state.katSayisi, "bulKat": this.state.bulKat,  "aidat": this.state.aidat
@@ -84,7 +89,29 @@ export default class UpdateDatasetPage extends Component {
             .then(this.props.history.push('/main'))
 
       }
+      state = {
+        selectedOption: null,
+      };
+      handleChange = selectedOption => {
+        this.setState({ selectedOption });
+        console.log(`Option selected:`, selectedOption);
+      };
+
+      componentDidMount(){
+        fetch("http://192.168.1.26:8086/regs")
+            .then(res=> res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded:true,
+                    optionlar:json.regions,
+                })
+                
+            });
+            
+    }
+    
   render() {
+    const { selectedOption } = this.state;
     return (
 
         <div>
@@ -103,11 +130,11 @@ export default class UpdateDatasetPage extends Component {
                 <ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/><ul/>
 
                 <Nav className="mr-auto">
-
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANA SAYFA</Nav.Link>
-                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">SONUÇLARI LİSTELE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">BÖLGE EKLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">FİYAT TAHMİNİ SONUÇLARI</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">VERİ SETİNİ GÜNCELLE</Nav.Link>
+                <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/gift">ÖDÜLÜ GÜNCELLE</Nav.Link>
                 <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> ÇIKIŞ</Nav.Link>
                 </Nav>
             </Navbar>
@@ -122,7 +149,12 @@ export default class UpdateDatasetPage extends Component {
                     <Form.Row>
                     <Form.Group as={Col} >
                     <Form.Label>Bölge</Form.Label>
-                    <Form.Control type="text"  value={this.state.region} onChange={this.handleChangeRegion}/>
+                    <Select
+                    value={selectedOption}
+                    onChange={this.handleChange}
+                    options={this.state.optionlar}
+                  />
+                   
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridPassword">
@@ -138,7 +170,7 @@ export default class UpdateDatasetPage extends Component {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Label> Bul.Kat:</Form.Label>
+                    <Form.Label> Bulunduğu Kat:</Form.Label>
                     <Form.Control type="text" value={this.state.bulKat} onChange={this.handleChangeBulKat} />
                     </Form.Group>
                 </Form.Row>
@@ -178,7 +210,7 @@ export default class UpdateDatasetPage extends Component {
                 </Form.Row>
                     <Form.Group as={Row} >
                     <Form.Label column sm="2">
-                        Bölüm:
+                        Büyüklük:
                     </Form.Label>
                     <Col sm="10">
                         <Form.Control type="text" value={this.state.bolum} onChange={this.handleChangeBolum} placeholder="1+1, 2+1, 5+2..." />
@@ -210,6 +242,13 @@ export default class UpdateDatasetPage extends Component {
                         <Form.Control type="text" value={this.state.fiyat} onChange={this.handleChangeFiyat} placeholder="Türk Lirası"/>
                     </Col>
                     </Form.Group>
+                    
+                    
+
+
+
+
+
                     <Button variant="primary" type="submit">Kaydet</Button>
                     
                 </form>

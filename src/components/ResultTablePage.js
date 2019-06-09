@@ -16,7 +16,7 @@ export default class ResultTablePage extends Component {
         }
      }
      componentDidMount(){
-        fetch("http://192.168.43.165:8086/results")
+        fetch("http://192.168.1.26:8086/results")
             .then(res=> res.json())
             .then(json => {
                 this.setState({
@@ -49,9 +49,10 @@ export default class ResultTablePage extends Component {
               <Nav className="mr-auto">
 
               <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/main">ANA SAYFA</Nav.Link>
-              <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">SONUÇLARI LİSTELE</Nav.Link>
               <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/component">BÖLGE EKLE</Nav.Link>
+              <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/table">FİYAT TAHMİNİ SONUÇLARI</Nav.Link>
               <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/updatedataset">VERİ SETİNİ GÜNCELLE</Nav.Link>
+              <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/gift">ÖDÜLÜ GÜNCELLE</Nav.Link>
               <Nav.Link style={{ fontWeight: 'bold' ,color:'#FFFFFF'}} href="/logins"> ÇIKIŞ</Nav.Link>
               </Nav>
           </Navbar>
@@ -60,23 +61,26 @@ export default class ResultTablePage extends Component {
                         
                         <div  className="container">
                         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}className="row">
-                           <div className="col-md-6 col-md-offset-5">
+                           <div className="col-md-10 col-md-offset-5">
                               
                            <Table striped bordered hover variant="light">
                                  <tr>
                                     <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>Bölge</th>
                                     <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>Tür</th> 
-                                    <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>KNN</th> 
-                                    <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>Decision Tree</th> 
+                                    <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>Model-1</th> 
+                                    <th style={{ fontWeight: 'bold' ,color:'#66B3FF'}}>Model-2</th> 
+                              
                                  </tr>
                                  {this.state.data.slice(0,5).map(event => (<tr>
                                     <td style={{ fontWeight: 'bold' }}>{event.region}</td>
                                     <td style={{ fontWeight: 'bold' }}>{event.type}</td>
-                                    <td style={{ fontWeight: 'bold' }}>{event.knn}</td>
-                                    <td style={{ fontWeight: 'bold' }}>{event.tree}</td>
+                                    <td style={{ fontWeight: 'bold' }}>%{event.knn}</td>
+                                    <td style={{ fontWeight: 'bold' }}>%{event.tree}</td>
+                                 
                                  </tr>))}
                               </Table>
                            </div>
+                           
                         </div>
                       </div>  
                        
@@ -97,7 +101,7 @@ export default class ResultTablePage extends Component {
 /*
 duygu:
 componentDidMount(){
-  fetch("http://192.168.43.165:8086/results")
+  fetch("http://192.168.1.26:8086/results")
       .then(res=> res.json())
       .then(json => {
           this.setState({
