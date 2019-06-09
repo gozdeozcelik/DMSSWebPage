@@ -20,7 +20,7 @@ export default class LoginPage extends Component {
     this.setState({password: event.target.value});
   }
   handleSubmit(event) {
-      this.props.history.push('/main')
+      t
       event.preventDefault();
       const url = "http://192.168.1.26:8086/webUser";
       const data={"email":this.state.email, 
